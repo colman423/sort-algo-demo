@@ -7,11 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Index</title>
     <link rel="stylesheet" href="lib/css/bootstrap-4.1.0.min.css">
+    <link rel="stylesheet" href="index.css">
     <script type="text/javascript" src="lib/js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="lib/js/bootstrap-4.1.0.min.js"></script>
     <script src="lib/js/d3.min.js"></script>
 </head>
-<body>
-    abb
+<body class="text-center">
+    <div class="container my-3">
+        <button class="btn btn-success" id="shuffle">shuffle</button>
+        <button class="btn btn-success" id="refresh">refresh</button>
+        <button class="btn btn-primary" id="bubble">bubble</button>
+        <button class="btn btn-primary" id="heap">heap</button>
+        <button class="btn btn-primary" id="merge">merge</button>
+    </div>
+    <div id="chart"></div>
 </body>
+<script src="helper.js"></script>
+<script src="chart.js"></script>
+<script src="sort.js"></script>
+<script src="index.js"></script>
+
 </html>
