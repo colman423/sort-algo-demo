@@ -1,5 +1,6 @@
-var length = 2000;
+var length = 1000;
 var data = generateArray(1, length);
+var eleArr = [];
 // var svg;
 
 $('#refresh').click(function() {
@@ -27,6 +28,11 @@ $('#merge').click(function() {
     $('#refresh').trigger('click');
     var d = data.slice(0);
     mergeSort(d);
+})
+$('#quick').click(function() {
+    $('#refresh').trigger('click');
+    var d = data.slice(0);
+    quickSort(d);
 })
 
 initChart();

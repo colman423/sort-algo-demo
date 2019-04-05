@@ -30,3 +30,23 @@ function swap(arr, i ,j) {
     bar1.attr("x", x2);
     bar2.attr("x", x1);
 }
+
+function swap_arr(dataArr, eleArr, i, j) {
+    var tmpData = dataArr[i];
+    dataArr[i] = dataArr[j];
+    dataArr[j] = tmpData;
+
+    var tmpEle = eleArr[i];
+    eleArr[i] = eleArr[j];
+    eleArr[j] = tmpEle;
+
+    var tmpX = eleArr[i].getAttribute('x');
+    eleArr[i].setAttribute('x', eleArr[j].getAttribute('x'));
+    eleArr[j].setAttribute('x', tmpX);
+}
+
+function swap_num(arr, i, j){
+    var tmpData = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmpData;
+}

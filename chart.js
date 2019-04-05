@@ -35,11 +35,13 @@ function append(data) {
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d, i) { return x(i); })
-    .attr("id", function(d, i) { return "d"+d; })
+    // .attr("id", function(d, i) { return "d"+d; })
     .attr("width", width/length)
     .attr("y", function(d, i) { return y(d); })
     .attr("height", function(d) { return height - y(d); })
 
+    eleArr = path._groups[0];
+    
     return path;
 }
 
@@ -47,3 +49,5 @@ function remove(path) {
     //remove old point
     path.remove();
 }
+
+

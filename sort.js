@@ -4,20 +4,22 @@ function bubble(data) {
     var timer = setInterval(function() {
         for (var j = 0; j < length - i; j++) {
             if (data[j] > data[j + 1]) {
-                swap(data, j, j+1);
+                // swap(data, j, j+1);
+                swap_arr(data, eleArr, j, j+1);
+
             }
         }
         i++;
         if (i == length) {
             clearInterval(timer);
-            console.log("time:", Date.now()-t);
+            console.log("bubble time:", Date.now()-t);
         }
     }, 0);
 }
 
 
 function heap(data) {
-    console.log(data);
+    // console.log(data);
     var t = Date.now();
     
     function heapify() {
@@ -33,12 +35,13 @@ function heap(data) {
     function pop() {
         var i = length-1;
         var timer = setInterval(function() {
-            swap(data, 0, i);
+            // swap(data, 0, i);
+            swap_arr(data, eleArr, 0, i);
             adjust(0, i);
             if( --i < 0 ) {
                 clearInterval(timer);
-                console.log("time:", Date.now()-t);
-                console.log(data);
+                console.log("heapsort time:", Date.now()-t);
+                // console.log(data);
             }
         }, 0);
     }
@@ -49,7 +52,8 @@ function heap(data) {
             if( j<n-1 && data[j] < data[j+1] ) j = j+1;
             if( k>= data[j] ) break;
             var c = Math.floor((j-1)/2);
-            swap(data, j, c);
+            // swap(data, j, c);
+            swap_arr(data, eleArr, j, c);
             j = 2*j + 1;
         }
     }
