@@ -1,4 +1,4 @@
-var length = 1000;
+var length = 400;
 var data = generateArray(1, length);
 var eleArr = [];
 // var svg;
