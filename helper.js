@@ -17,24 +17,8 @@ function generateArray(low, high) {
     return arr;
 }
 
-function swap(arr, i ,j) {
-    var num1 = arr[i];
-    var num2 = arr[j];
-    arr[i] = num2;
-    arr[j] = num1;
-    
-    var bar1 = d3.select("rect#d" + num1);
-    var x1 = bar1.attr("x");
-    var bar2 = d3.select("rect#d" + num2);
-    var x2 = bar2.attr("x");
-    bar1.attr("x", x2);
-    bar2.attr("x", x1);
-}
-
-function swap_arr(dataArr, eleArr, i, j) {
-    var tmpData = dataArr[i];
-    dataArr[i] = dataArr[j];
-    dataArr[j] = tmpData;
+function swap(eleArr, i, j) {
+    // console.log("main swap")
 
     var tmpEle = eleArr[i];
     eleArr[i] = eleArr[j];

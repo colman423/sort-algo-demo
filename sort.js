@@ -1,20 +1,71 @@
-function bubble(data) {
+onmessage = function(e) {
+    //algo: "bubble", "heap", "merge", "quick"
+    //data: array of input values
+    var algo = e.data.algo;
+    var data = e.data.data;
+    var length = e.data.dataLength;
+    if( algo=="BUBBLE" ) bubble(data, length);
+}
+function swap(arr, i, j) {
+    // console.log("worker swap")
+    var tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+    // console.log("worker post")
+    postMessage({
+        'action': "SWAP",
+        'i': i,
+        'j': j
+    });
+    // changeArr.push({
+    //     'action': "SWAP",
+    //     'i': i,
+    //     'j': j
+    // });
+}
+
+var changeArr = [];
+
+function bubble(data, length) {
+    // console.log("bbb");
+    // swap(data, 0, 399);
     var t = Date.now();
     var i = 0;
-    var timer = setInterval(function() {
+
+    for( var i=0; i<length; i++ ) {
         for (var j = 0; j < length - i; j++) {
             if (data[j] > data[j + 1]) {
                 // swap(data, j, j+1);
-                swap_arr(data, eleArr, j, j+1);
+                swap(data, j, j+1);
 
             }
+            // else changeArr.push({
+            //     'action': ""
+            // });
         }
-        i++;
-        if (i == length) {
-            clearInterval(timer);
-            console.log("bubble time:", Date.now()-t);
-        }
-    }, 0);
+    }
+    // console.log(changeArr);
+    // postMessage({
+    //     'action': "ARR",
+    //     'changeData': changeArr
+    // });
+
+    // var timer = setInterval(function() {
+    //     for (var j = 0; j < length - i; j++) {
+    //         if (data[j] > data[j + 1]) {
+    //             // swap(data, j, j+1);
+    //             swap(data, j, j+1);
+
+    //         }
+    //     }
+    //     i++;
+    //     if (i == length) {
+    //         clearInterval(timer);
+    //         console.log("bubble time:", Date.now()-t);
+    //     }
+    // }, 0);
+    console.log("bubble time:", Date.now()-t);
+
 }
 
 
